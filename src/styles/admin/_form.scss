@@ -1,0 +1,30 @@
+form
+{
+  & > .err-msg
+  {
+    text-align: center;
+    color: red;
+    margin: 0;
+  }
+  & > input
+  {
+    outline: none;
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    &:valid
+    {
+      background-color: rgba(172, 255, 47, 0.63);
+    }
+  }
+  & > label
+  {
+    margin-top: 6px;
+    display: block;
+    text-transform: capitalize;
+    &:first-child
+    {
+      margin-top: 0;
+    }
+  }
+}
