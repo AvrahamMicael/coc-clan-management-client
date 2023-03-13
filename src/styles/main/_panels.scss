@@ -1,10 +1,17 @@
-main.home-panel
+.panel
 {
   @extend #{
     '.container-lg',
     '.p-2',
     '.panel-layer-1',
     '.rounded',
+  };
+}
+
+.home-panel
+{
+  @extend #{
+    '.panel',
     '.position-relative',
   };
   border-top-left-radius: 0 !important;
