@@ -1,5 +1,5 @@
-import Image from "../infra/Image";
-import warning from "../../../public/warning.svg";
+import Image from "@/components/infra/Image";
+import warning from "@/../public/warning.svg";
 
 type Props = {
   message?: string,

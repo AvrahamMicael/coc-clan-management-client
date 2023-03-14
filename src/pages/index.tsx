@@ -2,13 +2,9 @@ import MemberLI from '@/components/MemberLI';
 import { MemberWithAllData } from '@/types';
 import useAPI from '@/utils/useAPI';
 import HomePanel from '@/components/HomePanel/index';
-import Spinner from '@/components/Spinner';
-import WarningSVG from '@/components/WarningSVG';
 
 export default function HomePage() {
-  const { data: members, error, isLoading } = useAPI<MemberWithAllData[]>();
-  if(error) return <WarningSVG message={ error?.message }/>
-  if(isLoading) return <Spinner/>;
+  const { data: members } = useAPI<MemberWithAllData[]>();
   return (
     <HomePanel>
       {members?.length ? (

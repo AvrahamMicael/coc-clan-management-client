@@ -18,7 +18,8 @@ const fetcher = <T>(path: string): Promise<T> => fetch(path, {
   return res.json();
 });
 
-const useAPI = <T, V extends Error = Error>(path: string = '', options?: SWROptions<T, V>) => useSWR<T, V, string>(process.env.NEXT_PUBLIC_API_URL + path,
+const useAPI = <T, V extends Error = Error>(path: string = '', options: SWROptions<T, V> = { suspense: true }) => useSWR<T, V, string>(
+  process.env.NEXT_PUBLIC_API_URL + path,
   url => fetcher<T>(url),
   options,
 );

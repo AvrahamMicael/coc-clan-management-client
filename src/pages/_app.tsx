@@ -1,8 +1,11 @@
+import ErrorBoundary from '@/components/ErrorBoundary';
 import Header from '@/components/Header';
 import Head from '@/components/infra/Head';
+import Spinner from '@/components/Spinner';
 import '@/styles/globals.scss'
 import type { AppProps } from 'next/app'
 import Script from 'next/script';
+import { Suspense } from 'react';
 import { SWRConfig } from 'swr';
 
 const App = ({ Component, pageProps }: AppProps) => (
@@ -17,7 +20,11 @@ const App = ({ Component, pageProps }: AppProps) => (
       <link rel="shortcut icon" href="/favicons/favicon.ico"/>
     </Head>
     <Header/>
-    <Component {...pageProps}/>
+    <ErrorBoundary>
+      <Suspense fallback={ <Spinner/> }>
+        <Component {...pageProps}/>
+      </Suspense>
+    </ErrorBoundary>
     <Script
       src="https://kit.fontawesome.com/22dad4dcbd.js"
       crossOrigin="anonymous"
