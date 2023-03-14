@@ -8,12 +8,12 @@ type Props = {
 };
 
 const WarningSVG = ({ message = 'something went wrong', width = 150, height = 150 }: Props) => (
-  <div className="test absolute-center">
+  <div className="size absolute-center">
     <Image src={ warning } width={ width } height={ height } alt="WARNING"/>
     <p className="warning-text">{ message }</p>
 
     <style jsx>{`
-      .test
+      .size
       {
         width: ${width}px;
         height: ${height}px;
