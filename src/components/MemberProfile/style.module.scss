@@ -1,4 +1,4 @@
-.player-profile
+.member-profile
 {
   border: 4px #7682a0 solid;
   background-color: #7682a0;
@@ -22,6 +22,10 @@
     &:first-child
     {
       border: none;
+      & > div:first-child
+      {
+        margin-bottom: 10px;
+      }
     }
   }
 
@@ -33,4 +37,11 @@
       bottom: 10px;
     }
   }
+}
+
+.xp-name-role-container
+{
+  display: grid;
+  grid-template-columns: 50px auto;
+  gap: 3px;
 }

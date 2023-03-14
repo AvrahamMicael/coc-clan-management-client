@@ -1,4 +1,4 @@
-.player-extra-info-row
+.member-extra-info-row
 {
   background-color: #4a4b77;
   display: grid;
@@ -10,14 +10,13 @@
     {
       margin-left: 0;
     }
-  }
-  
-  .qty
+  }  
+  @media screen and (max-width: 525px)
   {
-    display: inline-block !important;
-    background-color: #2e2c62;
-    text-align: center;
-    width: 60px;
-    text-shadow: none;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (max-width: 300px)
+  {
+    grid-template-columns: 1fr;
   }
 }

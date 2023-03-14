@@ -1,3 +1,5 @@
+export type RequiredProperties<T, K extends keyof T> = T & Required<Pick<T, K>>;
+
 export type Role = 'member'|'admin'|'coLeader'|'leader';
 
 export type League = { id: number, name: string, iconUrls: { small: string, tiny: string, medium?: string } };
@@ -88,6 +90,9 @@ export type Player = {
   clan?: PlayerClan,
 };
 
+/** Data that is got when fetching only one member */
+export type MemberOnly = RequiredProperties<Player, 'clan'>;
+
 export type RaidMember = {
   tag: string,
   name: string,
@@ -121,12 +126,16 @@ export type PromotionRequirement = {
   p: number,
 };
 
-export type MemberWithAllData = ClanMember & {
+export type ResumedExtraData = {
   wars: number,
   war_leagues: number,
   games_points: number,
   lastRaid: RaidData,
 };
+
+export type MemberWithAllData = ClanMember & ResumedExtraData;
+
+export type MemberOnlyWithAllData = MemberOnly & ResumedExtraData;
 
 export type RaidData = { attacks: number, attackLimit: number };
 
