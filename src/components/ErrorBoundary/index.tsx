@@ -1,5 +1,5 @@
 import React, { Component, ErrorInfo, ReactNode } from "react";
-import WarningSVG from "./WarningSVG";
+import WarningSVG from "../WarningSVG";
 
 type Props = { children: ReactNode };
 
