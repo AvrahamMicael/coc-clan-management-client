@@ -4,7 +4,7 @@ import useAPI from '@/utils/useAPI';
 import HomePanel from '@/components/HomePanel/index';
 
 export default function HomePage() {
-  const { data: members } = useAPI<MemberWithAllData[]>();
+  const { data: members } = useAPI<MemberWithAllData[]>('/');
   return (
     <HomePanel>
       {members?.length ? (
