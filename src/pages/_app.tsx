@@ -7,6 +7,7 @@ import type { AppProps } from 'next/app'
 import Script from 'next/script';
 import { Suspense } from 'react';
 import { SWRConfig } from 'swr';
+import { ContextAppWrapper } from '../contexts/admin/index';
 
 const App = ({ Component, pageProps }: AppProps) => (
   <SWRConfig value={{ refreshInterval: 10 * 60 * 1000 }}>
@@ -22,7 +23,9 @@ const App = ({ Component, pageProps }: AppProps) => (
     <Header/>
     <ErrorBoundary>
       <Suspense fallback={ <Spinner/> }>
-        <Component {...pageProps}/>
+        <ContextAppWrapper>
+          <Component {...pageProps}/>
+        </ContextAppWrapper>
       </Suspense>
     </ErrorBoundary>
     <Script

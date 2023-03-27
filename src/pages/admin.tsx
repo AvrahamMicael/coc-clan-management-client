@@ -1,5 +1,6 @@
 import AdminForm from "@/components/AdminForm";
 import AdminPanel from "@/components/AdminPanel";
+import useAdminCookieContext from "@/contexts/admin";
 import { useRouter } from "next/router";
 import useAPI from '../utils/useAPI';
 
@@ -7,8 +8,9 @@ type ResponseBody = { minAccessMsg: string };
 
 const Admin = () => {
   const router = useRouter();
-  const { data: { minAccessMsg }, error } = useAPI<ResponseBody>('/admin');
-  if(error)
+  const adminCookieContext = useAdminCookieContext();
+  const { data: { minAccessMsg } } = useAPI<ResponseBody>('/admin');
+  if(adminCookieContext.isAdmin)
     router.replace('/');
   return (
     <AdminPanel>

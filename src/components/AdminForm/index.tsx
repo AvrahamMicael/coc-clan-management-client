@@ -2,11 +2,14 @@ import { FormEvent, useState } from 'react';
 import Input from '@/components/Input';
 import style from './style.module.scss';
 import useAPI from '@/utils/useAPI';
+import useAdminCookieContext from '@/contexts/admin';
 
 type TriggerArgs = { playerTag: string, playerToken: string };
 type ResponseBody = { valid: true };
 
 const AdminForm = () => {
+  const adminCookieContext = useAdminCookieContext();
+
   const [ tag, setTag ] = useState<string>('');
   const [ token, setToken ] = useState<string>('');
   const [ alreadySubmitted, setAlreadySubmitted ] = useState<boolean>(false);
@@ -20,6 +23,9 @@ const AdminForm = () => {
   };
 
   const showInvalidMsg: boolean = alreadySubmitted && !isMutating && data === undefined;
+
+  if(data?.valid)
+    adminCookieContext.createAndSet();
   return (
     <form onSubmit={ onSubmit } className={ style.form }>
       {showInvalidMsg && (
