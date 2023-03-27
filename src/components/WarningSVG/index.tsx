@@ -11,7 +11,7 @@ const WarningSVG = ({ message = 'something went wrong', width = 150, height = 15
   <div className="size absolute-center">
     <Image src={ warning } width={ width } height={ height } alt="WARNING"/>
     <p className="warning-text">{ message }</p>
-
+    
     <style jsx>{`
       .size
       {
