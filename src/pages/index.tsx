@@ -1,7 +1,9 @@
-import MemberLI from '@/components/MemberLI';
 import { MemberWithAllData } from '@/types';
 import useAPI from '@/utils/useAPI';
-import HomePanel from '@/components/HomePanel/index';
+import dynamic from 'next/dynamic';
+
+const MemberLI = dynamic(() => import('@/components/MemberLI'));
+const HomePanel = dynamic(() => import('@/components/HomePanel/index'));
 
 export default function HomePage() {
   const { data: members } = useAPI<MemberWithAllData[]>('/');
